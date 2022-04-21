@@ -1,0 +1,10 @@
+button {
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 4px;
+    &.blue {
+        border: 1px solid $blue;
+        background: $blue;
+        color: $white;
+    }
+}

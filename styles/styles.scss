@@ -1,0 +1,27 @@
+$white: #fff;
+$gray: #ddd;
+$blue: #538DFE;
+
+// Components
+@import "../components/ui/button/button.scss";
+@import "../components/ui/input/input.scss";
+
+// Pages
+@import "../pages/auth/auth.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+ 
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
