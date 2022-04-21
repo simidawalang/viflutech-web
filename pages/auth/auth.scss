@@ -4,12 +4,23 @@
     width: 100vw;
     height: 100vh;
     &__placeholder {
+      height: 100%;
       background: $blue;
+      color: $white;
+      text-align: center;
+      padding: 40px;
       width: 40vw;
       display: flex;
       justify-content: center;
+      align-items: center;
       & img {
         max-width: 600px;
+      }
+      &-heading {
+        margin-top: 40px;
+      }
+      & p {
+        margin: 20px 0;
       }
     }
     &__form {
@@ -27,7 +38,6 @@
         text-transform: capitalize;
         margin-bottom: 60px;
         font-size: 2.125rem;
-
       }
       &-inputs input {
         display: block;
