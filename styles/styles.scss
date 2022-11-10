@@ -1,14 +1,18 @@
 $black: #1E2226;
 $white: #fff;
-$gray: #ddd;
+$gray: #7A7E80;
 $blue: #538DFE;
+$light-gray: #F6F6F6;
 
 // Components
 @import "../components/ui/button/button.scss";
 @import "../components/ui/input/input.scss";
+@import "../components/layout/navbar/navbar";
+@import "../components/ui/navLink/navlink";
 
 // Pages
 @import "../pages/auth/auth.scss";
+@import "../pages/app/dashboard/dashboard";
 
 * {
   padding: 0;
@@ -24,5 +28,15 @@ a, a:hover {
 
 body {
     color: $black;
+}
+
+.app-layout {
+  display: flex;
+}
+
+.main-app__body {
+  padding: 2rem 2.5rem;
+  background: $light-gray;
+  flex-grow: 1;
 }
 
