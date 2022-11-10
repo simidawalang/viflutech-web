@@ -1,30 +1,20 @@
 import React from "react";
-import Image from "next/image";
+import Link from "next/link";
 import type { NextPage } from "next";
+import AuthLayout from "../../components/pages/auth/Layout";
 import Button from "../../components/ui/button/Button";
 import Input from "../../components/ui/input/input";
-import authImg from "../../assets/auth-img.svg";
-import Link from "next/link";
+
 
 const Signup: NextPage = () => {
   return (
     <div className="auth-page">
-      <div className="auth-page__placeholder">
-        <div>
-          <Image src={authImg} alt="image placeholder" />
-          <h3 className="auth-page__placeholder-heading">Real Time Updates</h3>
-          <p>
-            Get real time updates on your fluid like temperature, level and
-            device runtime at any time.
-          </p>
-        </div>
-      </div>
       <div className="auth-page__form-container">
         <form className="auth-page__form">
+          <h2 className="auth-page__form-heading">Get Started</h2>
+          <h3 className="auth-page__form-subheading">Create a new account</h3>
           <div className="auth-page__form-inputs">
-            <h3 className="auth-page__form-header">Create Account</h3>
-            <Input type="email" placeholder="Email Address" />
-            <Input type="password" placeholder="Password" />
+            <Input type="text" placeholder="Full Name" />
             <Input type="email" placeholder="Email Address" />
             <Input type="password" placeholder="Password" />
           </div>
@@ -34,6 +24,7 @@ const Signup: NextPage = () => {
           </p>
         </form>
       </div>
+      <AuthLayout />
     </div>
   );
 };
