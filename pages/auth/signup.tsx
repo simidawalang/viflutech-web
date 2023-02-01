@@ -14,9 +14,9 @@ const Signup: NextPage = () => {
           <h2 className="auth-page__form-heading">Get Started</h2>
           <h3 className="auth-page__form-subheading">Create a new account</h3>
           <div className="auth-page__form-inputs">
-            <Input type="text" placeholder="Full Name" />
-            <Input type="email" placeholder="Email Address" />
-            <Input type="password" placeholder="Password" />
+            <Input label="Full Name" type="text" placeholder="Full Name" />
+            <Input label="Email" type="email" placeholder="Email Address" />
+            <Input label="Password" type="password" placeholder="Password" />
           </div>
           <Button content="Log in" variant="blue" />
           <p className="auth-page__form-link">

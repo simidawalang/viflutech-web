@@ -12,9 +12,11 @@ const Login: NextPage = () => {
         <form className="auth-page__form">
           <div className="auth-page__form-inputs">
             <h2 className="auth-page__form-heading">Welcome Back</h2>
-            <h3 className="auth-page__form-subheading">Login to your account</h3>
-            <Input type="email" placeholder="Email Address" />
-            <Input type="password" placeholder="Password" />
+            <h3 className="auth-page__form-subheading">
+              Login to your account
+            </h3>
+            <Input label="Email" type="email" placeholder="Email Address" />
+            <Input label="Password" type="password" placeholder="Password" />
           </div>
           <Button content="Log in" variant="blue" />
           <p className="auth-page__form-link">

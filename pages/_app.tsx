@@ -5,12 +5,12 @@ import { useRouter } from "next/router";
 import Navbar from "../components/layout/navbar/navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
+  const { pathname } = useRouter();
 
   return (
     <div className="app-layout">
-      {router.pathname.includes("app") && <Navbar />}
-      <main className="main-app__body">
+      {pathname.includes("app") && <Navbar />}
+      <main className={pathname.includes("app") ? "main-app__body" : ""}>
         <Component {...pageProps} />
       </main>
     </div>
@@ -18,3 +18,4 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default MyApp;
+// "main-app__body";
