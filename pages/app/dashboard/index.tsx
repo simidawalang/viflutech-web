@@ -1,17 +1,51 @@
 import Button from "../../../components/ui/button/Button";
+import { DeviceCard } from "../../../components/ui/Card";
 
-const Dashboard = () => {
+type DeviceData = {
+  name?: string;
+  id?: number | string;
+}[];
+
+interface DashboardProps {
+  devices: DeviceData;
+}
+
+const Dashboard = ({ devices }: DashboardProps) => {
   return (
     <>
       <header className="dashboard-header">
-        <div>
+        <div className="main-app_body">
           <h1>Hello, John</h1>
           <p>Never put off tomorrow, what can be done today.</p>
         </div>
-        <Button content="Add New Device" variant="blue"/>
+        <Button content="Add New Device" variant="blue" />
       </header>
+      <div className="card-grid-container">
+        {devices &&
+          devices.map(({ id, name }) => (
+            <DeviceCard
+              key={id}
+              content={`Device ${id}`}
+              href={`/app/dashboard/device/${id}`}
+            />
+          ))}
+      </div>
     </>
   );
 };
 
+type DevicesArray = {
+  id?: string | number;
+};
+
+export async function getServerSideProps() {
+  const res = await fetch("http://localhost:3000/api/devices");
+  const data = await res.json();
+
+  return {
+    props: {
+      devices: data.devices,
+    },
+  };
+}
 export default Dashboard;

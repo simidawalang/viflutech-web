@@ -1,0 +1,24 @@
+.card-grid-container {
+    margin-top: 40px;
+    display: grid;
+    gap: 20px;
+    @media screen and (min-width: 768px){
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.device-card {
+  background-color: white;
+  box-shadow: 0px 20px 27px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
