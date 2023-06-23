@@ -12,7 +12,6 @@ import { toast } from "react-toastify";
 const Login: NextPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const ls = new SecureLS();
 
   const router = useRouter();
 
@@ -26,6 +25,8 @@ const Login: NextPage = () => {
 
   const login = async (e: FormEvent) => {
     e.preventDefault();
+
+    const ls = new SecureLS();
 
     const res = await loginUser({
       email: email.trim(),

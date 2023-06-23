@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Button from "../../../../components/ui/button/Button";
 import Image from "next/image";
-import { ViscosityIcon } from "../../../../assets";
+import { ViscosityIcon } from "../../../../assets/index";
 import { ReadingCard } from "../../../../components/ui/Card/index";
 
 const Device = () => {
