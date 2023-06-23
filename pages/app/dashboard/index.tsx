@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
 import Button from "../../../components/ui/button/Button";
 import { DeviceCard } from "../../../components/ui/Card";
+import SecureLS from "secure-ls";
 
 type DeviceData = {
   name?: string;
@@ -12,11 +14,19 @@ interface DashboardProps {
 
 const Dashboard = ({ devices }: DashboardProps) => {
   const id = "VI-2AH154CDEB";
+  const [user, setUser] = useState<any>({});
+  const ls = new SecureLS();
+
+  useEffect(() => {
+    setUser(ls.get("user"));
+  }, []);
+
+
   return (
     <>
       <header className="dashboard-header">
         <div className="main-app_body">
-          <h1>Hello, John</h1>
+          <h1>Hello{user ? `, ${user.firstname}` : ""}</h1>
           <p>Never put off tomorrow, what can be done today.</p>
         </div>
         <Button content="Add New Device" variant="blue" />

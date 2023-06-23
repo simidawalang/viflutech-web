@@ -1,15 +1,20 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
 import Button from "../../components/ui/button/Button";
 import Input from "../../components/ui/input/input";
 import Link from "next/link";
 import AuthLayout from "../../components/pages/auth/Layout";
 import { loginUser } from "../../helpers/auth";
-import { baseUrl } from "../../constants";
+import SecureLS from "secure-ls";
+import { toast } from "react-toastify";
 
 const Login: NextPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const ls = new SecureLS();
+
+  const router = useRouter();
 
   const handleEmailChange = (e: any) => {
     setEmail(e.target.value);
@@ -22,13 +27,26 @@ const Login: NextPage = () => {
   const login = async (e: FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch(`${baseUrl}/auth/login`, {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
+    const res = await loginUser({
+      email: email.trim(),
+      password: password.trim(),
     });
+
+    if (res) {
+      ls.set("token", res.data.data.token);
+      ls.set("user", res.data.data.user);
+
+      toast.success("Logged in");
+
+      setTimeout(() => {
+        router.push("/app/dashboard");
+      }, 1000);
+    }
 
     console.log(res);
   };
+  //abahernesto@gmail.com
+  //P@ssw0rd1
   return (
     <div className="auth-page">
       <div className="auth-page__form-container">
