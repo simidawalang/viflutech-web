@@ -2,22 +2,15 @@ import { useEffect, useState } from "react";
 import Button from "../../../components/ui/button/Button";
 import { DeviceCard } from "../../../components/ui/Card";
 import SecureLS from "secure-ls";
+import { deviceId } from "../../../constants";
 
-type DeviceData = {
-  name?: string;
-  id?: number | string;
-}[];
 
-interface DashboardProps {
-  devices: DeviceData;
-}
-
-const Dashboard = ({ devices }: DashboardProps) => {
-  const id = "VI-2AH154CDEB";
+const Dashboard = () => {
+  const id = deviceId;
   const [user, setUser] = useState<any>({});
-  const ls = new SecureLS();
 
   useEffect(() => {
+  const ls = new SecureLS();
     setUser(ls.get("user"));
   }, []);
 

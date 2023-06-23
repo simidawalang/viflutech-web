@@ -8,11 +8,25 @@
 
 .reading-cards__container {
   display: grid;
+  gap: 1rem;
 }
 
 .reading-card {
+  background-color: $white;
   box-shadow: 4px 10px 15px 0px #00000014;
   padding: 1rem;
+
+  & .reading-header {
+    display: flex;
+  }
+  & .reading-value {
+    font-size: 1.875rem;
+  }
+
+  & .comment, .tip {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+  }
 }
 
 @media screen and (min-width: 768px) {

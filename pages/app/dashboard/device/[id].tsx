@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Button from "../../../../components/ui/button/Button";
 import Image from "next/image";
 import { ViscosityIcon } from "../../../../assets";
+import { ReadingCard } from "../../../../components/ui/Card/index";
 
 const Device = () => {
   const router = useRouter();
@@ -26,25 +27,9 @@ const Device = () => {
       </div>
 
       <div className="reading-cards__container">
-        <div className="reading-card">
-          <div className="title">
-            <span>Viscosity</span>
-            <span>5 yesterday</span>
-          </div>
-          <div>
-            <Image
-              src={ViscosityIcon.src}
-              alt="viscosity"
-              height={34}
-              width={34}
-            />
-            <h2>0.54 Pas</h2>
-          </div>
-          <p>Viscosity is fairly normal for fluid type.</p>
-          <p>
-            Note: If Fluid level gets below 5litres, it is advisable top up.
-          </p>
-        </div>
+        <ReadingCard title="Viscosity" icon={ViscosityIcon} />
+        <ReadingCard title="Viscosity" icon={ViscosityIcon} />
+        <ReadingCard title="Viscosity" icon={ViscosityIcon} />
       </div>
     </>
   );
