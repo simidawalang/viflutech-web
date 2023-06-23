@@ -5,3 +5,18 @@
     width: 300px;
   }
 }
+
+.reading-cards__container {
+  display: grid;
+}
+
+.reading-card {
+  box-shadow: 4px 10px 15px 0px #00000014;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .reading-cards__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

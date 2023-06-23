@@ -11,6 +11,7 @@ interface DashboardProps {
 }
 
 const Dashboard = ({ devices }: DashboardProps) => {
+  const id = "VI-2AH154CDEB";
   return (
     <>
       <header className="dashboard-header">
@@ -21,14 +22,10 @@ const Dashboard = ({ devices }: DashboardProps) => {
         <Button content="Add New Device" variant="blue" />
       </header>
       <div className="card-grid-container">
-        {devices &&
-          devices.map(({ id, name }) => (
-            <DeviceCard
-              key={id}
-              content={`Device ${id}`}
-              href={`/app/dashboard/device/${id}`}
-            />
-          ))}
+        <DeviceCard
+          content={`Device ${id}`}
+          href={`/app/dashboard/device/${id}`}
+        />
       </div>
     </>
   );
