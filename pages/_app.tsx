@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer autoClose={1500}/>
 
       <div className="app-layout">
         {pathname.includes("app") && <Navbar />}

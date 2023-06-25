@@ -44,7 +44,7 @@ const Login: NextPage = () => {
       }, 1000);
     }
 
-    console.log(res);
+    console.log(res?.data?.data?.token);
   };
   //abahernesto@gmail.com
   //P@ssw0rd1

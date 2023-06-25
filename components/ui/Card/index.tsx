@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -19,21 +19,35 @@ export const DeviceCard = ({
   );
 };
 
-export const ReadingCard = ({ title, icon }: { title: string, icon: any }) => {
+export const ReadingCard = ({
+  title,
+  icon,
+  reading,
+  comment,
+  tip,
+}: {
+  title: string;
+  icon: any;
+  reading: string | number | ReactNode;
+  comment?: string;
+  tip?: string | ReactNode;
+}) => {
   return (
     <div className="reading-card">
-      <div className={title}>
-        <span>Viscosity</span>
-        <span>5 yesterday</span>
+      <div className="title">
+        <span>{title}</span>
+        <span className="comparison">5 yesterday</span>
       </div>
       <div className="reading-header">
         <Image src={icon.src} alt="viscosity" height={34} width={34} />
-        <h2 className="reading-value">0.54 Pas</h2>
+        <h2 className="reading-value">
+          {reading} {title.toLowerCase() === "temperature" && "℃"}
+          {title.toLowerCase() === "level" && "cm"}
+          {title.toLowerCase() === "viscosity" && "Pas"}
+        </h2>
       </div>
-      <p className="comment">Viscosity is fairly normal for fluid type.</p>
-      <p className="tip">
-        Note: If Fluid level gets below 5litres, it is advisable top up.
-      </p>
+      <p className="comment">{comment}</p>
+      <p className="tip">{tip}</p>
     </div>
   );
 };
